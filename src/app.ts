@@ -7,21 +7,9 @@ import cors from "cors";
 const app = express();
 app.use(express.json());
 
-const allowedOrigins = [
-  "https://books-i2gx.vercel.app",
-  "https://library-management-api-3.vercel.app",
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "*",
     credentials: true,
   })
 );
