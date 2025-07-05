@@ -9,16 +9,18 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://books-i2gx.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
 
+
 app.use("/api", bookRoutes);
 app.use("/api", borrowBooks);
 
-app.get("/", async (req: Request, res: Response) => {
-  res.send("Hello");
-});
+app.get("/", async(req: Request, res: Response) => {
+  res.send("Hello")
+})
 
 export default app;
